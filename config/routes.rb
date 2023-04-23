@@ -3,6 +3,14 @@ Rails.application.routes.draw do
   
   get "post", to: "post#index"
 
+  get "password_reset", to: "password_resets#new", as: :edit_password
+  post "password_reset", to: "password_resets#create"
+  get "password_reset/edit", to: "password_resets#edit"
+  patch "password_reset/edit", to: "password_resets#update"
+
+  get "profile", to: "profile#edit", as: :edit_profile
+  patch "profile", to: "profile#update"
+
   get "sign_in", to: "registrations#new"
   post "sign_in", to: "registrations#create"
 

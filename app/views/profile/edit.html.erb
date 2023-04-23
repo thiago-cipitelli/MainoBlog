@@ -1,0 +1,19 @@
+<h1>Edit Profile</h1>
+
+<%= form_with model: Current.user, url: edit_profile_path do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name, placeholder: :name %>
+  </div>
+  <div>
+    <%= form.label "New password" %>
+    <%= form.password_field :password %>
+  </div>
+  <div>
+    <%= form.label "Confirm password" %>
+    <%= form.password_field :password_confirmation %>
+  </div>
+  <div>
+    <%= form.submit "Edit" %>
+  </div>
+<% end %>

@@ -1,0 +1,5 @@
+Did you lost your password?
+
+  Hello <%= params[:user].name %>,
+  if you lost your password please click in this link to reset your password. if you did not request this then simply ignore this email. :)
+<%= password_reset_edit_url(token: @token) %>
