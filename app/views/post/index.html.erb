@@ -1,0 +1,8 @@
+<h1>teste</h1>
+
+<% if @user %>
+  Logged in as <%= @user.email %>
+  <%= button_to "Logout", logout_path, method: :delete %>
+<% else %>
+  <%= link_to "Sign_in", sign_in_path %>
+<% end %>
