@@ -1,4 +1,4 @@
-<h1>teste</h1>
+<h1>Maino Blog</h1>
 
 <% if Current.user %>
   Logged in as <%= Current.user.email %>
@@ -8,3 +8,12 @@
   <%= link_to "Login", login_path %>
   <%= link_to "Sign in", sign_in_path %>
 <% end %>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <h2><%= post.title %></h2>
+      <p><%= post.body %></p>
+    </li>
+  <% end %>
+</ul>
