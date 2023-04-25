@@ -2,9 +2,8 @@
   <div>
     <h1><a class="nav-link" href="/">Maino Blog</a></h1>
   </div>
-  <div class="user d-flex">
+  <div class="user d-flex align-items-center">
   <% if Current.user %>
-    Logged in as <%= Current.user.name %>
     <%= link_to "Create Post", new_post_path, class: "nav-link"  %>
     <%= link_to "Edit Profile", edit_profile_path, class: "nav-link"  %>
     <%= button_to "Logout", logout_path, method: :delete, class: "nav-link"  %>
@@ -14,3 +13,7 @@
   <% end %>
   </div>
 </nav>
+
+<% if Current.user %>
+  <p class="ms-3">Logged in as <%= Current.user.name %></p>
+<% end %>
