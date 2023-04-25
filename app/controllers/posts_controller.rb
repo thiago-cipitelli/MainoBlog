@@ -5,7 +5,7 @@ class PostsController < ApplicationController
     if session[:user_id]
       @user = User.find_by(id: session[:user_id])
     end
-    @posts = Post.all
+    @posts = Post.order(:title).page params[:page]
   end
 
   def show

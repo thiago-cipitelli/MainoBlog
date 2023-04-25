@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root to: "posts#index"
   
-  resources :posts
+  resources :posts do
+    get 'page/:page', action: :index, on: :collection
+  end
 
   get "password_reset", to: "password_resets#new", as: :edit_password
   post "password_reset", to: "password_resets#create"
