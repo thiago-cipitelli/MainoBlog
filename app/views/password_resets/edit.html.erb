@@ -1,7 +1,7 @@
 <h1>Forgot Password?</h1>
 
 reset your password
-<%= form_with model: @user, url: password_reset_edit_path(token: params[:token]) do |form| %>
+<%= form_with model: @post, url: password_reset_edit_path(token: params[:token]) do |form| %>
   <div>
     <%= form.label :password %>
     <%= form.password_field :password %>

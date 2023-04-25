@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root to: "post#index"
+  root to: "posts#index"
   
-  get "post", to: "post#index"
+  resources :posts
 
   get "password_reset", to: "password_resets#new", as: :edit_password
   post "password_reset", to: "password_resets#create"

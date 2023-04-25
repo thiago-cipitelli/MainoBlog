@@ -4,6 +4,7 @@
   Logged in as <%= Current.user.email %>
   <%= button_to "Logout", logout_path, method: :delete %>
   <%= link_to "Edit Profile", edit_profile_path %>
+  <%= link_to "Create Post", new_post_path %>
 <% else %>
   <%= link_to "Login", login_path %>
   <%= link_to "Sign in", sign_in_path %>
@@ -14,6 +15,10 @@
     <li>
       <h2><%= post.title %></h2>
       <p><%= post.body %></p>
+      <% if Current.user %>
+        <%= link_to "Edit", edit_post_path(post) %>
+        <%= link_to "Delete", post_path(post), data: {turbo_method: :delete, turbo_confirm: "are you sure?"} %>
+      <% end %>
     </li>
   <% end %>
 </ul>
