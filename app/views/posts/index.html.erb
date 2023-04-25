@@ -1,19 +1,10 @@
-<h1>Maino Blog</h1>
-
-<% if Current.user %>
-  Logged in as <%= Current.user.email %>
-  <%= button_to "Logout", logout_path, method: :delete %>
-  <%= link_to "Edit Profile", edit_profile_path %>
-  <%= link_to "Create Post", new_post_path %>
-<% else %>
-  <%= link_to "Login", login_path %>
-  <%= link_to "Sign in", sign_in_path %>
-<% end %>
-
-<ul>
+<ul class="list-group mb-3">
   <% @posts.each do |post| %>
-    <li>
-      <h2><%= post.title %></h2>
+    <li class="list-group-item">
+      <div class="d-flex">
+        <h2><%= link_to post.title, post %></h2>
+        <p class="d-flex align-items-end m-2">(<%= post.comments.count %> comments)</p>
+      </div>
       <p><%= post.body %></p>
       <% if Current.user == post.user %>
         <%= link_to "Edit", edit_post_path(post) %>
@@ -22,4 +13,6 @@
     </li>
   <% end %>
 </ul>
+<div class="d-flex justify-content-center align-items-center">
 <%= paginate @posts %>
+</div>

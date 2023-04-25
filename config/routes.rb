@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   
   resources :posts do
     get 'page/:page', action: :index, on: :collection
+    resources :comments
   end
 
   get "password_reset", to: "password_resets#new", as: :edit_password

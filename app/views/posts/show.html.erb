@@ -1,0 +1,22 @@
+<div class="content border border-primary p-3 mb-3 rounded">
+    <h1><%= @post.title %></h1>
+    <p><%= @post.body %></p>
+  </div>
+  
+<div class="content border border-primary p-3 mb-3 rounded">
+  <h2>Comments</h2>
+  <% @post.comments.each do |comment| %>
+    <strong><%= comment.commenter %></strong> at <%= comment.created_at
+    %>    
+  <p><%= comment.body %></p>
+  <% end %>
+  
+  <h2>Add a Comment:</h2>
+  <%= form_with model: [ @post, @post.comments.build ] do |form| %>
+    <div class="mb-3">
+      <%= form.label :body %><br>
+      <%= form.text_area :body, class: "form-control" %>
+    </div>
+    <%= form.submit "comment", class: "btn btn-primary" %>
+  <% end %>
+</div>

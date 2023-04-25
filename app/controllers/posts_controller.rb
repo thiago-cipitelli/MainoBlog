@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :require_user_logged_in!, except: [:index, :show]
-  before_action :check_association, except: [:index, :show]
+  before_action :check_association, except: [:index, :show, :new, :create]
 
   def index
     if session[:user_id]
@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Current.user.posts.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def edit
