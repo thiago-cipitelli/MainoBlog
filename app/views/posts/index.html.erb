@@ -15,7 +15,7 @@
     <li>
       <h2><%= post.title %></h2>
       <p><%= post.body %></p>
-      <% if Current.user %>
+      <% if Current.user == post.user %>
         <%= link_to "Edit", edit_post_path(post) %>
         <%= link_to "Delete", post_path(post), data: {turbo_method: :delete, turbo_confirm: "are you sure?"} %>
       <% end %>
