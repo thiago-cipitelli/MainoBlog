@@ -6,7 +6,6 @@
 <div class="content border border-primary p-3 mb-3 rounded">
   <h2>Comments</h2>
   <% @post.comments.each do |comment| %>
-    <% binding.pry %>
     <strong><%= comment.commenter %></strong> at <%= comment.created_at
     %>    
   <p><%= comment.body %></p>
