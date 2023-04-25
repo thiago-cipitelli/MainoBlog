@@ -2,7 +2,7 @@
   <% @posts.each do |post| %>
     <li class="list-group-item">
       <div class="d-flex">
-        <h2><%= link_to post.title, post %></h2>
+        <h2><%= link_to post.title, post, class: "link-underline link-underline-opacity-0" %></h2>
         <p class="d-flex align-items-end m-2">(<%= post.comments.count %> comments)</p>
       </div>
       <p><%= post.body %></p>
