@@ -3,6 +3,7 @@
     <h1><a class="nav-link" href="/">Maino Blog</a></h1>
   </div>
   <div class="user d-flex align-items-center">
+    <%= link_to "Tags", tags_path, class: "nav-link" %>
   <% if Current.user %>
     <%= link_to "Create Post", new_post_path, class: "nav-link"  %>
     <%= link_to "Edit Profile", edit_profile_path, class: "nav-link"  %>
