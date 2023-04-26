@@ -19,7 +19,7 @@ class PostsController < ApplicationController
 
   def update
       @post = Current.user.posts.find(params[:id])
-      if @post.update(post_params)
+      if @post.update(post_params.except(:tags))
         redirect_to root_path
       end
 
@@ -30,8 +30,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Current.user.posts.create(post_params)
-    
+    @post = Current.user.posts.create(post_params.except(:tags))
+    create_or_delete_posts_tags(@post, params[:post][:tags])
     if @post.save
       redirect_to root_path
     else
@@ -49,7 +49,15 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :tags)
+  end
+
+  def create_or_delete_posts_tags(post, tags)
+    post.taggables.destroy_all
+    tags = tags.strip.split(',')
+    tags.each do |tag|
+      post.tags << Tag.find_or_create_by(name: tag)
+    end
   end
 
   def check_association

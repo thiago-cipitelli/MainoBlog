@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tags
   root to: "posts#index"
   
   resources :posts do

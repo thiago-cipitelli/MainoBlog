@@ -7,6 +7,10 @@
     <%= form.text_field :title, class: "form-control" %>
   </div>
   <div class="mb-3">
+    <%= form.label :tag %>
+    <%= form.text_field :tags, value: @post.tags.map(&:name).join(","), class: "form-control" %>
+  </div>
+  <div class="mb-3">
     <%= form.label :body %>
     <%= form.text_area :body, class: "form-control" %>
   </div>
