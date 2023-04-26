@@ -1,16 +1,16 @@
-<nav class="nav justify-content-between">
+<nav class="nav justify-content-between mb-5 bg-dark">
   <div>
-    <h1><a class="nav-link" href="/">Maino Blog</a></h1>
+    <h1><a class="nav-link text-white" href="/">Maino Blog</a></h1>
   </div>
   <div class="user d-flex align-items-center">
-    <%= link_to "Tags", tags_path, class: "nav-link" %>
+    <%= link_to "Tags", tags_path, class: "nav-link text-white" %>
   <% if Current.user %>
-    <%= link_to "Create Post", new_post_path, class: "nav-link"  %>
-    <%= link_to "Edit Profile", edit_profile_path, class: "nav-link"  %>
-    <%= button_to "Logout", logout_path, method: :delete, class: "nav-link"  %>
+    <%= link_to "Create Post", new_post_path, class: "nav-link text-white"  %>
+    <%= link_to "Edit Profile", edit_profile_path, class: "nav-link text-white"  %>
+    <%= button_to "Logout", logout_path, method: :delete, class: "nav-link text-white"  %>
   <% else %>
-    <%= link_to "Login", login_path, class: "nav-link" %>
-    <%= link_to "Sign in", sign_in_path, class: "nav-link" %>
+    <%= link_to "Login", login_path, class: "nav-link text-white" %>
+    <%= link_to "Sign in", sign_in_path, class: "nav-link text-white" %>
   <% end %>
   </div>
 </nav>

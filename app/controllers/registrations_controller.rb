@@ -10,7 +10,7 @@ class RegistrationsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path, notice: "Successufuly created account"
     else
-      flash.alert = @user.errors.full_messages
+      render :new
     end
   end
 

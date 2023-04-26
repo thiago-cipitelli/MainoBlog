@@ -1,6 +1,16 @@
 <h1>Sign in</h1>
 
 <%= form_with model: @user, url: sign_in_path do |form| %>
+  <% if @user.errors.any? %>
+    oi
+    <div class="alert alert-danger">
+      <% @user.errors.full_messages.each do |message| %>
+        <div>
+          <%= message %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
   <div class="mb-3">
     <%= form.label :name %>
     <%= form.text_field :name , class: "form-control" %>
