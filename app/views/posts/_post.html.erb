@@ -1,0 +1,20 @@
+  <li class="list-group-item">
+     <div class="d-flex justify-content-between">
+       <div>
+        <h2><%= link_to post.title, post, class: "link-underline link-underline-opacity-0" %></h2>
+        <p class="d-flex align-items-end m-2">(<%= post.comments.count %> comments)</p>
+       </div>
+        <div class="d-flex">
+          <% post.tags.each do |tag| %>
+            <p><%= link_to tag.name, tag_path(tag), class: "btn btn-success btn-sm ms-2" %></p>
+          <% end %>
+        </div>
+      </div>
+      <p><%= post.body %></p>
+      <% if Current.user == post.user %>
+      <div class="options d-flex">
+        <%= link_to "Edit", edit_post_path(post), class: "btn btn-primary" %>
+        <%= link_to "Delete", post_path(post), data: {turbo_method: :delete, turbo_confirm: "are you sure?"}, class: "btn btn-outline-danger ms-3" %>
+      </div>
+      <% end %>
+    </li>

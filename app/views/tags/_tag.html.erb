@@ -1,0 +1,13 @@
+<div id="<%= dom_id tag %>">
+  <p>
+    <strong>Name:</strong>
+    <%= tag.name %>
+  </p>
+
+  <ul class="list-group mb-3">
+    <% tag.taggables.each do |taggable| %>
+      <%= render "posts/post", post: taggable.post %>
+    <% end %>
+  </ul>
+
+</div>
